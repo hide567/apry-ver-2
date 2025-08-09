@@ -1,0 +1,279 @@
+/* ===== モバイル対応（600px以下） ===== */
+@media (max-width: 600px) {
+    .question-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .timer-display {
+        font-size: 36px;
+    }
+    
+    .timer-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .timer-btn {
+        max-width: 100%;
+    }
+    
+    .score-display {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .score-item.percentage {
+        grid-column: 1;
+    }
+    
+    .badge-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .install-banner-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .install-buttons {
+        justify-content: center;
+    }
+    
+    .header-title {
+        font-size: 18px;
+    }
+    
+    .card {
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .tab-nav-item {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+}
+
+/* ===== タブレット対応（600px-900px） ===== */
+@media (min-width: 601px) and (max-width: 900px) {
+    .question-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    
+    .subject-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .badge-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .score-display {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .score-item.percentage {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===== デスクトップ対応（900px以上） ===== */
+@media (min-width: 901px) {
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .question-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+    
+    .subject-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .badge-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    
+    .timer-display {
+        font-size: 64px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .header-title {
+        font-size: 24px;
+    }
+    
+    .tab-content {
+        padding: 20px;
+    }
+    
+    /* デスクトップではボトムナビを左サイドバーに変更 */
+    .bottom-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    }
+    
+    .bottom-nav-item {
+        padding: 15px 20px;
+        text-align: left;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nav-icon {
+        font-size: 24px;
+        margin-bottom: 0;
+    }
+    
+    .nav-label {
+        font-size: 14px;
+    }
+    
+    /* メインコンテンツをサイドバー分移動 */
+    body {
+        padding-left: 200px;
+        padding-bottom: 0;
+    }
+}
+
+/* ===== 高解像度対応 ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .badge-icon {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ===== ダークモード対応 ===== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #ffffff;
+    }
+    
+    .card {
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+    
+    .tab-nav {
+        background: #1e1e1e;
+    }
+    
+    .tab-nav-item {
+        color: #bbbbbb;
+    }
+    
+    .tab-nav-item.active {
+        color: #667eea;
+    }
+    
+    .bottom-nav {
+        background: #1e1e1e;
+    }
+    
+    .question-cell {
+        background: #2a2a2a;
+        border-color: #444444;
+        color: #ffffff;
+    }
+    
+    .question-cell.correct {
+        background: #1b4a1b;
+        border-color: #4caf50;
+    }
+    
+    .question-cell.wrong {
+        background: #4a1b1b;
+        border-color: #f44336;
+    }
+    
+    .score-item {
+        background: #2a2a2a;
+        color: #ffffff;
+    }
+    
+    .history-item {
+        background: #1e1e1e;
+    }
+    
+    .stat-card {
+        background: #1e1e1e;
+    }
+}
+
+/* ===== アクセシビリティ対応 ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== 印刷対応 ===== */
+@media print {
+    .bottom-nav,
+    .install-banner,
+    .timer-controls,
+    .save-btn,
+    .export-btn {
+        display: none !important;
+    }
+    
+    .main-container {
+        display: block !important;
+    }
+    
+    .tab-content {
+        display: block !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+    }
+    
+    .card {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}
+
+/* ===== タッチデバイス最適化 ===== */
+@media (pointer: coarse) {
+    .timer-btn,
+    .subject-btn,
+    .question-cell,
+    .bottom-nav-item {
+        min-height: 44px; /* タッチターゲットの最小サイズ */
+    }
+    
+    .question-cell {
+        font-size: 12px;
+    }
+    
+    .tab-nav-item {
+        min-height: 48px;
+    }
+}
